@@ -1,7 +1,10 @@
 import { Sequelize } from "sequelize";
+import dotenv from 'dotenv';
 
-const db = new Sequelize(railway, root, '1ADhHDb-bF2bcBdE-fh-cCdc1DdbAb24', {
-    host: roundhouse.proxy.rlwy.net,
+dotenv.config(); // Load environment variables from .env file
+
+const db = new Sequelize(process.env.RAILWAY_DATABASE, process.env.RAILWAY_USERNAME, process.env.RAILWAY_PASSWORD, {
+    host: process.env.RAILWAY_HOST,
     dialect: "mysql"
 });
 
